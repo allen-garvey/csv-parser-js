@@ -1,0 +1,25 @@
+{
+  "name": "csv-parser",
+  "version": "1.0.0",
+  "description": "JavaScript parser for CSV",
+  "main": "index.html",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allen-garvey/csv-parser-js.git"
+  },
+  "keywords": [
+    "csv"
+  ],
+  "author": "Allen Garvey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/allen-garvey/csv-parser-js/issues"
+  },
+  "homepage": "https://github.com/allen-garvey/csv-parser-js#readme"
+}
