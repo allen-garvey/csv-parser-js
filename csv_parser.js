@@ -1,31 +1,16 @@
 /*
- * 
+ * In browser version
  */
-(function(){
-    
-	function handleFile(e) {
-		var files = e.target.files;
-		var fileReader = new FileReader();
-		fileReader.onload = csvReadEvent;
-		var i,f;
-		for (i = 0, f = files[i]; i < files.length; ++i) {
-			if(f.type !== "text/csv"){
-				continue;
-			}
-			fileReader.readAsText(f);
+var CSV = (function(){
+	function parse(csv){
+		if(!csv || typeof csv !== 'string'){
+			return [];
 		}
+		return parseString(csv);
 	}
-	document.getElementById('csv_file_input').addEventListener('change', handleFile, false);
-
-
-	function csvReadEvent(e){
-		var fileContents = e.target.result;
+	function parseString(csvString){
 		//fix newlines from excel and Windows
-		fileContents = fileContents.replace(/\r/g, "\n");
-		console.log(parseCSV(fileContents));
-	}
-
-	function parseCSV(csvString){
+		csvString = csvString.replace(/\r/g, "\n");
 		var parsed = [];
 		var rows = csvString.split('\n');
 		for (var i = 0; i < rows.length; i++) {
@@ -91,4 +76,8 @@
 	function unescapeQuotes(content){
 		return content.replace(/("")/g, '"');
 	}
+
+	var ret = {};
+	ret.parse = parse;
+	return ret;
 })();
