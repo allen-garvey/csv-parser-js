@@ -1,5 +1,5 @@
 /*
- * node version
+ * Core CSV Parser
  */
 
 function parse(csv){
@@ -8,8 +8,6 @@ function parse(csv){
 	}
 	return parseString(csv);
 }
-
-
 function parseString(csvString){
 	//fix newlines from excel and Windows
 	csvString = csvString.replace(/\r/g, "\n");
@@ -79,4 +77,7 @@ function unescapeQuotes(content){
 	return content.replace(/("")/g, '"');
 }
 
-module.exports = {parse : parse};
+
+//export wrapper for parser
+var parser = {};
+parser.parse = parse;

@@ -21,5 +21,13 @@
   "bugs": {
     "url": "https://github.com/allen-garvey/csv-parser-js/issues"
   },
-  "homepage": "https://github.com/allen-garvey/csv-parser-js#readme"
+  "homepage": "https://github.com/allen-garvey/csv-parser-js#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-if": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.0.0-alpha",
+    "gulp-template": "^4.0.0",
+    "gulp-uglify": "^1.5.3"
+  }
 }
