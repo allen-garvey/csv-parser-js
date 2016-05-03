@@ -28,4 +28,8 @@ describe("CSV String Test Suite", function() {
 		expect(parse('"To be isn""t it!, or am I crazy?"')).toEqual([['To be isn"t it!, or am I crazy?']]);
   	});
 
+  	it("String with empty cell", function() {
+		expect(parse(',hello')).toEqual([['', 'hello']]);
+  	});
+
 });
