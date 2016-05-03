@@ -1,5 +1,5 @@
 var fs = require('fs');
-var CSV = require(__dirname + '/../csv-parser-node.js');
+var CSV = require(__dirname + '/../dist/csv-parser-node.js');
 
 var parse = CSV.parse;
 
