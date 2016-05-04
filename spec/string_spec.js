@@ -32,4 +32,11 @@ describe("CSV String Test Suite", function() {
 		expect(parse(',hello')).toEqual([['', 'hello']]);
   	});
 
+  	it("String with empty cell end", function() {
+		expect(parse('hello,')).toEqual([['hello', '']]);
+  	});
+  	it("String with smart quotes", function() {
+		expect(parse('"hello, “there”",')).toEqual([['hello, “there”', '']]);
+  	});
+
 });
