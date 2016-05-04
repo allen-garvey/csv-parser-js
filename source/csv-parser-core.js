@@ -9,10 +9,10 @@ function parse(csv){
 	return parseString(csv);
 }
 function parseString(csvString){
-	//fix newlines from excel and Windows
-	csvString = csvString.replace(/\r/g, "\n");
+	//fix newlines from excel, Windows and oddly, apple numbers
+	csvString = csvString.replace(/\r\n/g, "\n");
 	var parsed = [];
-	var rows = csvString.split('\n');
+	var rows = csvString.split(/[\r\n]/);
 	for (var i = 0; i < rows.length; i++) {
 		var row = rows[i];
 		console.log(row);
