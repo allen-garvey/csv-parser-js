@@ -11,21 +11,12 @@ function parse(csv){
 function parseString(csvString){
 	//fix newlines from excel, Windows and oddly, apple numbers
 	csvString = csvString.replace(/\r\n/g, "\n");
-	var parsed = [];
 	var rows = csvString.split(/[\r\n]/);
-	for (var i = 0; i < rows.length; i++) {
-		var row = rows[i];
-		if(!row.match(/"/)){
-			parsed.push(row.split(','));
-		}
-		else{
-			parsed.push(parseRowWithQuotes(row));
-		}
-	}
-	return parsed;
+	
+	return rows.map(parseRow);
 }
 
-function parseRowWithQuotes(row){
+function parseRow(row){
 	var parsed = [];
 
 	var isCurrentlyInQuotedCell = false;
@@ -67,9 +58,7 @@ function parseRowWithQuotes(row){
 	}
 	//still have to add last line
 	parsed.push(cellContent.replace(/"$/, ''));
-	parsed = parsed.map(function(item){return unescapeQuotes(item);});
-
-	return parsed;
+	return parsed.map(function(item){return unescapeQuotes(item);});
 }
 
 function unescapeQuotes(content){
