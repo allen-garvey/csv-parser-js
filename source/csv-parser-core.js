@@ -15,7 +15,6 @@ function parseString(csvString){
 	var rows = csvString.split(/[\r\n]/);
 	for (var i = 0; i < rows.length; i++) {
 		var row = rows[i];
-		console.log(row);
 		if(!row.match(/"/)){
 			parsed.push(row.split(','));
 		}
